@@ -31,13 +31,12 @@ Dev dependencies:
 ```
 lib/
 ├─ main.dart
-├─ router.dart
 ├─ core/
-│  ├─ constants/
+| ├─ router.dart
+├─ ├─ constants/
 │  └─ helper/
 ├─ domain/
 │  ├─ models/
-│  ├─ repositories/
 │  ├─ services/
 │  └─ notifiers/
 └─ presentation/
@@ -57,3 +56,10 @@ lib/
 - Navigation with `go_router`.
 - Local persistence and caching using `hive` and lightweight settings via `shared_preferences`.
 - Build-time Hive adapter generation using `hive_generator` + `build_runner`.
+
+
+## Download App Link
+
+```
+https://loadly.io/pinterest_clone
+```

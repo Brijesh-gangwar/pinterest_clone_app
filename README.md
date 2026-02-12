@@ -30,19 +30,21 @@ Dev dependencies:
 
 ```
 lib/
-	main.dart
-	router.dart
-	core/
-		constants/
-		helper/
-	domain/
-		models/
-		repositories/
-		services/
-        notifiers/
-	presentation/
-		screens/
-		widgets/
+├─ main.dart
+├─ router.dart
+├─ core/
+│  ├─ constants/
+│  └─ helper/
+├─ domain/
+│  ├─ models/
+│  ├─ repositories/
+│  ├─ services/
+│  └─ notifiers/
+└─ presentation/
+	├─ screens/
+    ├─ widgets/
+	└─ utils/
+    
 
 ```
 
@@ -50,6 +52,7 @@ lib/
 
 - Pinterest-style staggered image grid feed.
 - Cached network images with placeholders and shimmer effects.
+- State managment using `flutter_riverpod`.
 - User authentication using `clerk_flutter`.
 - Navigation with `go_router`.
 - Local persistence and caching using `hive` and lightweight settings via `shared_preferences`.

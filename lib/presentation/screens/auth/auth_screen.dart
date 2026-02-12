@@ -3,6 +3,7 @@ import 'package:clerk_flutter/clerk_flutter.dart';
 import 'package:clerk_auth/clerk_auth.dart' as clerk;
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:pinterest_clone_app/presentation/utils/snackbar_widget.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -72,18 +73,18 @@ Future<void> _navigateToHome(String userId) async {
 
   
   if (user == null) {
+    AppSnackbar.show(context, message: "Completing your profile is required to continue.");
     context.go('/signup-age');
     return;
   }
 
   if(user.age == null || user.gender == null || user.interests == null || user.interests!.isEmpty) {
-      print('Incomplete profile for user: $userId');
-
+      AppSnackbar.show(context, message: "Completing your profile is required to continue.");
     context.go('/signup-age');
     return;
   }
 
-
+  AppSnackbar.success(context, "Welcome back!");
   context.go('/home');
 }
 
@@ -151,9 +152,8 @@ Future<void> _navigateToHome(String userId) async {
     setState(() => _loading = false);
   }
 
-  void _showError(String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
+    void _showError(String message) {
+      AppSnackbar.error(context, message);
   }
 
   @override

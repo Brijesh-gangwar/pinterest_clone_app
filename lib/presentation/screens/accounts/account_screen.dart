@@ -2,6 +2,7 @@ import 'package:clerk_flutter/clerk_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pinterest_clone_app/domain/services/session_service.dart';
+import 'package:pinterest_clone_app/presentation/utils/snackbar_widget.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -12,6 +13,8 @@ class AccountScreen extends StatelessWidget {
     await auth.signOut(); 
 
     await SessionService.clear();
+
+    AppSnackbar.success(context, "Logged out successfully");
    context.go('/'); 
   }
 
@@ -19,6 +22,7 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -76,21 +80,14 @@ class AccountScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
                             Text(
-                              "Brijesh",
+                              "user",
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(height: 4),
-                            Text(
-                              "@brijesh2212093",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white54,
-                              ),
-                            ),
+                            
                           ],
                         ),
                       ],

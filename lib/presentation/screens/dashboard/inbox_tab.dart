@@ -34,7 +34,7 @@ class InboxTab extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              /// MESSAGES HEADER
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -63,7 +63,7 @@ class InboxTab extends StatelessWidget {
 
               const SizedBox(height: 18),
 
-              /// INVITE FRIENDS TILE
+
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(  
@@ -104,7 +104,7 @@ class InboxTab extends StatelessWidget {
 
               const SizedBox(height: 28),
 
-              /// UPDATES HEADER
+
               const Text(
                 "Updates",
                 style: TextStyle(
@@ -115,7 +115,7 @@ class InboxTab extends StatelessWidget {
 
               const SizedBox(height: 30),
 
-              /// CENTER ILLUSTRATION + TEXT
+
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

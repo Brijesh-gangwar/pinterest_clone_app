@@ -15,7 +15,7 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
-    final images = [
+    final home_tab_images = [
       'https://picsum.photos/400/600',
       'https://picsum.photos/400/500',
       'https://picsum.photos/400/700',
@@ -76,9 +76,9 @@ class _HomeTabState extends State<HomeTab> {
                   crossAxisCount: 2,
                   mainAxisSpacing: 10,
                   crossAxisSpacing: 10,
-                  itemCount: images.length,
+                  itemCount: home_tab_images.length,
                   itemBuilder: (context, index) {
-                    return PinCard(imageUrl: images[index]);
+                    return PinCard(imageUrl: home_tab_images[index]);
                   },
                 ),
               ),

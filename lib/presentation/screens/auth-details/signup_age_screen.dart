@@ -1,6 +1,10 @@
+import 'dart:io';
+
+import 'package:clerk_flutter/clerk_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pinterest_clone_app/domain/services/session_service.dart';
 import 'package:pinterest_clone_app/presentation/widgets/progress_step.dart';
 
 import '../../../domain/services/hive_service.dart';
@@ -51,10 +55,21 @@ class _SignupAgeScreenState extends State<SignupAgeScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () async {
+    final auth = ClerkAuth.of(context);
+
+    await SessionService.clear();
+    await auth.signOut();
+
+            await SessionService.clear();
+
+            await HiveService.deleteUser();
+
+            context.go('/');
+          },
         ),
 
-        title: StepIndicator(currentIndex: 2),
+        title: StepIndicator(currentIndex: 3),
 
         centerTitle: true,
       ),
@@ -74,7 +89,7 @@ class _SignupAgeScreenState extends State<SignupAgeScreen> {
             ),
             const SizedBox(height: 16),
             Text(
-              "To help keep Pinterest safe, we now require your date of birth. Your date of birth also helps us provide more personalised recommendations and relevant ads. We won't share this information without your permission and it won't be visible on your profile.",
+              "To help keep Pinterest safe, we now require your date of birth. We won't share this information without your permission and it won't be visible on your profile.",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.grey[400],
@@ -82,7 +97,7 @@ class _SignupAgeScreenState extends State<SignupAgeScreen> {
                 height: 1.5,
               ),
             ),
-            const SizedBox(height: 60),
+            const SizedBox(height: 30),
             // Clickable Date Display
             GestureDetector(
               onTap: () => _selectDate(context),
@@ -90,12 +105,12 @@ class _SignupAgeScreenState extends State<SignupAgeScreen> {
                 DateFormat('d-MMM-yyyy').format(selectedDate),
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 40,
+                  fontSize: 34,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 30),
             Text(
               "Use your own age, even if this is a business account",
               textAlign: TextAlign.center,

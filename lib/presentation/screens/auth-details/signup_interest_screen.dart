@@ -42,7 +42,7 @@ class _SignupInterestScreenState extends State<SignupInterestScreen> {
           onPressed: () => context.pop(),
         ),
 
-        title: StepIndicator(currentIndex: 5),
+        title: StepIndicator(currentIndex: 6),
         centerTitle: true,
       ),
       body: Column(

@@ -76,6 +76,14 @@ Future<void> _navigateToHome(String userId) async {
     return;
   }
 
+  if(user.age == null || user.gender == null || user.interests == null || user.interests!.isEmpty) {
+      print('Incomplete profile for user: $userId');
+
+    context.go('/signup-age');
+    return;
+  }
+
+
   context.go('/home');
 }
 

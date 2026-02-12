@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pinterest_clone_app/presentation/widgets/progress_step.dart';
 
 import '../../../domain/services/hive_service.dart';
 
@@ -20,22 +21,8 @@ class SignupGenderScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 20),
           onPressed: () => context.pop(),
         ),
-        // Progress indicator (Step 5 of 7 active) [cite: 67, 68]
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: List.generate(6, (index) {
-            return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 4),
-              width: 8,
-              height: 8,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: index == 3 ? Colors.white : Colors.grey[700],
-              ),
-            );
-          }),
-        ),
+
+        title: StepIndicator(currentIndex: 4),
         centerTitle: true,
       ),
       body: Padding(
@@ -45,7 +32,7 @@ class SignupGenderScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 40),
             const Text(
-              "What is your gender?", // [cite: 72]
+              "What is your gender?", 
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
@@ -54,7 +41,7 @@ class SignupGenderScreen extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             const Text(
-              "This helps us find you more relevant content. We won't show it on your profile.", // [cite: 73]
+              "This helps us find you more relevant content. We won't show it on your profile.", 
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white70,
@@ -64,7 +51,7 @@ class SignupGenderScreen extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             
-            // Gender Option Buttons [cite: 74, 75, 76]
+
             _buildGenderButton(context, "Female"),
             _buildGenderButton(context, "Male"),
             _buildGenderButton(context, "Specify another gender"),
